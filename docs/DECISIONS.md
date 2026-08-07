@@ -55,3 +55,13 @@ real tracked forklift position which projected to (1.06 m, 9.74 m) — inside
 aisle bounds, confirming the full detect->track->project chain. Aisle
 dimensions (3.5 m x 11 m) estimated for the synthetic scene; absolute scale
 approximate, relative distances consistent — sufficient for TTC/PET.
+
+## ADR-009: Trajectory corpus assembly (Phase 4)
+Fused tracking + homography into a metric trajectory corpus: per-frame
+position (m), velocity (m/s), and speed for each track. Applied class-lock
+(majority vote per track_id) to prevent mid-track class flips, and 5-frame
+rolling-mean velocity smoothing to remove tracker jitter. Forklift speeds
+(mean 0.66, max 5.0 m/s) fall in the expected warehouse range, validating
+the metric scale. Camera1 yields forklift-only tracks (no floor pedestrians,
+per ADR-006); pedestrian-forklift conflict trajectories come from the
+Phase 6 simulator.
