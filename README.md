@@ -72,7 +72,7 @@ A separate evaluation set of fixed-camera warehouse videos (TalTech CCTV, DVIDS,
 |---|---|
 | 1. YOLOv11 detection | ✅ Complete |
 | 2. BoT-SORT tracking + trajectory extraction | ✅ Complete |
-| 3. Camera calibration + homography (metric floor projection) | 🔨 In progress |
+| 3. Camera calibration + homography (metric floor projection) |  In progress |
 | 4. Trajectory corpus assembly | ⏳ Planned |
 | 5. TTC/PET geometric conflict labelling | ⏳ Planned |
 | 6. Procedural conflict simulator | ⏳ Planned |
@@ -103,4 +103,3 @@ docs/           architecture and decision records
 
 ---
 
-*Built by [Aayush Aswal](https://github.com/AayushAswal27).*
