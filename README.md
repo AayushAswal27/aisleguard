@@ -70,16 +70,16 @@ A separate evaluation set of fixed-camera warehouse videos (TalTech CCTV, DVIDS,
 
 | Phase | Status |
 |---|---|
-| 1. YOLOv11 detection | ✅ Complete |
-| 2. BoT-SORT tracking + trajectory extraction | ✅ Complete |
+| 1. YOLOv11 detection | Complete |
+| 2. BoT-SORT tracking + trajectory extraction |  Complete |
 | 3. Camera calibration + homography (metric floor projection) |  In progress |
-| 4. Trajectory corpus assembly | ⏳ Planned |
-| 5. TTC/PET geometric conflict labelling | ⏳ Planned |
-| 6. Procedural conflict simulator | ⏳ Planned |
-| 7. Bird's-eye-view rasteriser | ⏳ Planned |
-| 8. BRIN — custom CNN risk model (from scratch) | ⏳ Planned |
-| 9. Explainability (Grad-CAM, ablations) | ⏳ Planned |
-| 10. Streamlit application | ⏳ Planned |
+| 4. Trajectory corpus assembly |  Planned |
+| 5. TTC/PET geometric conflict labelling |  Planned |
+| 6. Procedural conflict simulator |  Planned |
+| 7. Bird's-eye-view rasteriser |  Planned |
+| 8. BRIN — custom CNN risk model (from scratch) |  Planned |
+| 9. Explainability (Grad-CAM, ablations) |  Planned |
+| 10. Streamlit application |  Planned |
 
 ---
 
