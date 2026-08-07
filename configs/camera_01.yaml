@@ -1,0 +1,28 @@
+camera_id: camera_01
+source: evaluation_videos/cctv/Camera1.mp4
+resolution:
+- 1920
+- 1080
+homography:
+- - 0.019966044136153955
+  - 0.003635729298445128
+  - -18.468956430005942
+- - -0.0002454295365342788
+  - -0.013351366787464888
+  - 14.185729039866821
+- - 6.754603682669555e-05
+  - 0.0019312628335920513
+  - 1.0
+aisle_width_m: 3.5
+aisle_length_m: 11.0
+calibration_pixel_points:
+- - 734
+  - 1049
+- - 1278
+  - 1039
+- - 913
+  - 66
+- - 1123
+  - 60
+calibration_note: Synthetic scene; aisle dimensions estimated. Absolute scale approximate,
+  relative distances consistent.

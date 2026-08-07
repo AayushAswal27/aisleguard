@@ -47,3 +47,11 @@ Measured ID stability on all 5 TalTech cameras (~1250 frames each):
   Cam3: 3 IDs, avg lifespan 8f (heavy rack occlusion, side-on angle)
 4/5 cameras track stably. Primary homography/pipeline development uses
 Camera1 and Camera5.
+
+## ADR-008: Homography calibration on Camera1
+Calibrated a pixel->metres homography using the 4 corners of the green aisle
+floor-lines. Reprojection error 0 cm on calibration points; validated on a
+real tracked forklift position which projected to (1.06 m, 9.74 m) — inside
+aisle bounds, confirming the full detect->track->project chain. Aisle
+dimensions (3.5 m x 11 m) estimated for the synthetic scene; absolute scale
+approximate, relative distances consistent — sufficient for TTC/PET.
