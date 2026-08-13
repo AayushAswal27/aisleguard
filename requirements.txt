@@ -1,0 +1,18 @@
+# Core ML / CV
+torch==2.13.0
+torchvision==0.28.0
+ultralytics==8.4.115
+
+# Computer vision & numerical
+opencv-python==5.0.0.93
+numpy==2.4.6
+scipy==1.17.1
+
+# Data
+pandas==3.0.5
+PyYAML==6.0.3
+
+# Demo app
+streamlit==1.61.1
+matplotlib==3.11.1
+pillow==12.3.0
