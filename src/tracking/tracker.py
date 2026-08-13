@@ -1,3 +1,11 @@
+"""
+Detection + tracking runner (Phase 2).
+
+Runs YOLOv11 with BoT-SORT tracking over a fixed-camera video and writes a
+trajectory CSV: one row per tracked detection with frame index, persistent
+track ID, class, confidence, and the bottom-centre pixel (the ground-contact
+point that Phase 3's homography projects to metric floor coordinates).
+"""
 from ultralytics import YOLO
 import cv2
 import csv
@@ -10,6 +18,7 @@ OUTPUT_CSV = "outputs/trajectories/camera1_tracks.csv"
 
 
 def main():
+    """Track a video end-to-end and dump per-detection rows to OUTPUT_CSV."""
     model = YOLO(MODEL_PATH)
 
     results = model.track(
@@ -22,7 +31,7 @@ def main():
         verbose=False,
     )
 
-    rows = []   # ← collect all trajectory data here
+    rows = []   # collect all trajectory data here
 
     for frame_idx, result in enumerate(results):
 
@@ -43,14 +52,14 @@ def main():
             cy = y2   # bottom-center = ground-contact point
 
             rows.append([frame_idx, track_id, names[cls], round(conf, 3),
-                         round(cx, 1), round(cy, 1)])   # ← save each detection
+                         round(cx, 1), round(cy, 1)])   # save each detection
 
             print(
                 f"ID={track_id:3d} | {names[cls]:10s} | "
                 f"Conf={conf:.2f} | BottomCenter=({cx:.1f}, {cy:.1f})"
             )
 
-    # ← after all frames: write the CSV
+    # after all frames: write the CSV
     Path(OUTPUT_CSV).parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_CSV, "w", newline="") as f:
         w = csv.writer(f)

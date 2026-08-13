@@ -1,3 +1,13 @@
+"""
+Conflict metrics: Time-To-Collision (TTC) and Post-Encroachment-Time (PET).
+
+These physics-based functions define what a "conflict" is. They are used to
+LABEL the simulated training data (Phase 5-6); they are never called at
+inference — BRIN predicts from the raster alone. TTC assumes constant velocity
+and solves for when two circular agents' separation first drops below the sum
+of their radii; PET measures the smallest time gap between two agents occupying
+the same floor cell.
+"""
 import numpy as np
 
 

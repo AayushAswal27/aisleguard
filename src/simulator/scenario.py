@@ -1,3 +1,13 @@
+"""
+Procedural conflict simulator (Phase 6).
+
+Generates synthetic forklift-pedestrian scenarios on a warehouse aisle, since
+real near-misses cannot be safely staged or collected. Agents follow waypoints
+at constant speed; each timestep is labelled SAFE / CAUTION / IMMINENT by the
+TTC physics from src.risk.ttc. Labelling gates on BOTH time-to-collision AND
+distance to avoid over-firing IMMINENT. The output snapshots feed the BEV
+rasteriser (Phase 7) to build the BRIN training set.
+"""
 import numpy as np
 
 
@@ -15,6 +25,7 @@ class Agent:
         self.done = False
 
     def step(self, dt):
+        """Advance one timestep of dt seconds toward the current waypoint."""
         if self.done or self.wp_idx >= len(self.waypoints):
             self.vel = np.zeros(2)
             self.done = True
@@ -53,7 +64,13 @@ def simulate(agents, duration=10.0, hz=10.0):
         history.append(snapshot)
     return history
 
+
 def label_timestep(agents_snapshot):
+    """
+    Label one snapshot SAFE / CAUTION / IMMINENT from the closest
+    person-forklift pair. Gates on both TTC and distance so that a low TTC
+    at long range does not spuriously fire IMMINENT. Returns (label, min_ttc).
+    """
     from src.risk.ttc import time_to_collision
     import numpy as np
 
