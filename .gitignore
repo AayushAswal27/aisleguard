@@ -17,3 +17,6 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 .vscode/
+
+# demo recordings (keep the gif, not the raw mov)
+outputs/screens/*.mov
